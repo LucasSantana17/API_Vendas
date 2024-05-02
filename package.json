@@ -1,0 +1,23 @@
+{
+  "name": "projeto_loja",
+  "version": "1.0.0",
+  "description": "APLICACAO_SIMULACAO_VENDAS",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucas",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "modules": "^0.4.0",
+    "mysql": "^2.18.1",
+    "node": "^22.0.0",
+    "nodemon": "^3.1.0"
+  }
+}
+
