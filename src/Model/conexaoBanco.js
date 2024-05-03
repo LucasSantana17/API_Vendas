@@ -10,4 +10,4 @@ const conex_banco = mysql.createConnection({
     NAME:process.env.NAME
 }, conexaoBemSucedida());
 
-module.exports = {conex_banco};
+module.exports = conex_banco;

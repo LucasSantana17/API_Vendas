@@ -9,6 +9,6 @@ app.conex_DB;
 
 app.use(cors());
 
-app.use('cadastro',routes);
+app.use(routes);
 
 module.exports = app;
