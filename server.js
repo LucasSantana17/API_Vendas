@@ -9,4 +9,5 @@ const serverRodando =_=>{console.log(`Server Rodando...
 Porta = ${PORT}`)}
 
 server.listen(PORT, serverRodando);
+
 // metodo de rodar o servidor passando a porta e uma função de  comfirmação 
