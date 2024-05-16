@@ -8,11 +8,13 @@ rots.get('/teste', (req, rep, next) => {
 
 //Cadastro no banco 
 rots.post('/cadastro', (request, response) => { 
+   
       const {nome, CPF, email} = request.body;
 
       const SQL = 'INSERT INTO cliente (nome, CPF, email) VALUES (?,?,?)';
 
       banco.query(SQL, [nome, CPF, email], (err) => {
+
          if(err){
             console.log('erro ao cadastrar', err)
             response.status(500).json(
@@ -23,7 +25,20 @@ rots.post('/cadastro', (request, response) => {
                msg:'Cadastro realizado com sucesso!!'})
          }
       });
+});
 
+
+rots.get('/user',(request, response) => {
+   const SQL = 'select * from cliente';
+
+   banco.query(SQL, (err, result) => {
+      if(err){
+         response.status(500).json({msg:'erro ao consultar'});
+      }else{
+         response.status(200).json(result);
+         console.log('Consulta feita com sucesso')
+      }
+   })
 });
 
 module.exports = rots;
