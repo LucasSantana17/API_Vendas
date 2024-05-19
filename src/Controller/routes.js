@@ -1,6 +1,8 @@
 const express = require('express');
 const banco = require('../Model/conexaoBanco');
 const rots = express.Router();
+const system = require('./Sistema/systemdados');
+
 
 
 rots.get('/teste', (req, rep, next) => {
@@ -49,6 +51,7 @@ rots.get('/user',(req, rep, next) => {
 
 // Busca por id 
 rots.get('/busca', (req, res) => {
+   
 
    const sql = 'SELECT * FROM cliente WHERE id = ?';
 
@@ -59,17 +62,18 @@ rots.get('/busca', (req, res) => {
    banco.query(sql, [id], (err, result) => {
 
          if(err){
-            res.status(500).send({msg:'Usuário não encontrado'});
+            res.status(500).send({msg:'Erro ao buscar'});
             console.log('Erro ao buscar usuário!'+ err);
          }else{
-            res.status(200).json(result);
-            console.log('Consulta realizada com sucesso!!');
+            const sys = new system(res, result);
+            res = sys.dados(result);
          }   
    });
 });
 
 //Deleção de um registro dentro do banco 
 rots.delete('/delete',(request, response) => {
+
    const id = request.body.id;
 
    const SQL = 'DELETE FROM cliente WHERE id = ?';
