@@ -11,10 +11,22 @@ function systemDados( res, result){
      }else{
         this.result = ['Usuário não encontrado!'];
         res.status(404).json(this.result);
-        
       }
     }
  
+}
+
+ function Quantidade( res, quantidade, result) {
+
+      this.res = res;
+      this.quantidade = quantidade;
+      this.result = result;
+
+      this.quant = function(){
+   
+      }
+
+
 }
 
 module.exports = systemDados;
