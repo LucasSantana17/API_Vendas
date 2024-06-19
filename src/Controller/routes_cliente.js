@@ -15,9 +15,9 @@ rots.post('/cadastro', (req, rep, next)=>{
 
    const sql = 'INSERT INTO cliente (nome, CPF, email) VALUES (?, ?, ?)';
 
-   let nome = req.body.nome; console.log(nome)
-   let cpf = req.body.cpf;       console.log(cpf)
-   let email = req.body.email; console.log(email)
+   let nome = req.body.nome; 
+   let cpf = req.body.cpf;      
+   let email = req.body.email; 
 
    if(nome=='' || cpf=='' || email==''){
       rep.status(500).send({msg:'Cadastro invalido, tente novamente!'});
