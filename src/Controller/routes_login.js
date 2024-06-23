@@ -3,7 +3,6 @@ const express = require('express');
 const rts = express.Router();
 
 rts.get('/Login',(req, res) => {
-
     const sql = 'SELECT nome, cpf FROM cliente WHERE nome = ? AND cpf = ?';
 
     let dados = {nome:'', cpf:''};   
@@ -16,7 +15,6 @@ rts.get('/Login',(req, res) => {
     console.log(cpf);
 
     conexao.query(sql,[nome,cpf],(err,result) => {
-        
         if(err){
             res.status(500).send({msg:'Usuário inexistente'})
             console.log('Usuário não Localizado'+err);
