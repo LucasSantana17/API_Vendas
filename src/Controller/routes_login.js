@@ -2,12 +2,10 @@ const conexao = require('../Model/conexaoBanco')
 const express = require('express');
 const rts = express.Router();
 
-
 rts.get('/Login',(req, res) => {
     const sql = 'SELECT nome, cpf FROM cliente WHERE nome = ? AND cpf = ?';
 
-    let dados = {nome:'', cpf:''}; 
-       
+    let dados = {nome:'', cpf:''};   
     dados = req.body;
 
     let nome = dados.nome;
