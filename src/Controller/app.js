@@ -7,6 +7,7 @@ const path = require('path');
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, '../view')));
 
 const routes_cliente = require('./routes_cliente');
 const routes_pedidos = require('./routes_pedidos');
