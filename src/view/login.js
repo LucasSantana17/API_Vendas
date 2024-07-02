@@ -10,7 +10,7 @@ function verificacao() {
         let dado = {
             nome: nome,
             senha: senha
-        }
+        };
 
         let jsonDados = JSON.stringify(dado);
         console.log(jsonDados);
@@ -24,14 +24,17 @@ function verificacao() {
         })
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Erro ao verificar os dados',Error);
+                throw new Error('Erro ao verificar os dados');
             }
-            return response.json();
+            return response.json(); 
         })
         .then((data) => {
             console.log('Resposta do servidor:', data);
-        
+            window.location.href = 'http://localhost:3000/home';
         })
+        .catch((error) => {
+            console.error('Erro ao fazer login:', error);
+        });
     });
 }
 

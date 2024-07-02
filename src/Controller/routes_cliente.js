@@ -13,13 +13,14 @@ rots.get('/teste', (req, rep, next) => {
 //Criando um cadastro no banco
 rots.post('/cadastro', (req, rep, next)=>{
 
-   const sql = 'INSERT INTO cliente (nome, CPF, email) VALUES (?, ?, ?)';
+   const sql = 'INSERT INTO cliente (nome, CPF, email, cli_senha) VALUES (?, ?, ?, ?)';
 
    let nome = req.body.nome; 
    let cpf = req.body.cpf;      
    let email = req.body.email; 
+   let senha = req.body.senha;
 
-   if(nome=='' || cpf=='' || email==''){
+   if(nome=='' || cpf=='' || email=='' || senha==''){
       rep.status(500).send({msg:'Cadastro invalido, tente novamente!'});
       rep.end();
    }
@@ -27,16 +28,21 @@ rots.post('/cadastro', (req, rep, next)=>{
       rep.status(500).send({msg:'CPF obrigatório'});
       rep.end();
    }
+   if(senha ==null){
+      rep.status(500).send({msg:'Senha obrigatória'});
+      rep.end();
+      console.log('Senha invalida ou não fornecidada');
+   }
 
-   banco.query(sql, [nome, cpf, email], (err) => {
+   banco.query(sql, [nome, cpf, email, senha], (err) => {
       if(err){
          console.log('Erro ao cadastrar'+ err);
          console.log(err)
          rep.status(500).send({msg:'Cadastro não realizado'});
-      }else{  
+      }
          rep.status(200).json({msg:`Cadastro realizado com sucesso! ${nome, cpf, email}`});
          console.log(`Cadastro realizado com sucesso! ${nome, cpf, email} `)
-      }
+      
     });
 });
 

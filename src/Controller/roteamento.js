@@ -1,11 +1,9 @@
 const express = require('express');
-const rou_tela = express.Router();
+const formulario = express.Router();
 const path = require('path');
 
-//rou_tela.use(express.static(path.join(__dirname, 'view')));
-
-rou_tela.get('/', (req, res) => {
-    const filePath = path.join(__dirname,'../view/home.html')
+formulario.get('/', (req, res) => {
+    const filePath = path.join(__dirname,'../view/login.html')
 
     res.sendFile(filePath, 'utf-8',(err, result) => {
         if(err){
@@ -17,5 +15,17 @@ rou_tela.get('/', (req, res) => {
     })
 });
 
+formulario.get('/home', (req, res) => {
+    const filePath = path.join(__dirname,'../view/home.html')
 
-module.exports = rou_tela;
+    res.sendFile(filePath, 'utf-8',(err, result) =>{
+        if(err){
+            res.status.send({msg:'Um erro inesperado aconteceu'});
+            console.log('Erro no roteamento'+ err);
+        }
+        console.log('home encontrada');
+    })
+})
+
+
+module.exports = formulario;
