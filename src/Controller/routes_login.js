@@ -11,13 +11,17 @@ rts.post('/Login', (req, res) => {
     conexao.query(sql, [nome, senha], (err, result) => {
         if (err) {
             console.log('Erro no servidor:', err);
-            res.status(500).send({ msg: 'Erro no servidor' });
+            return res.status(500).send({ msg: 'Erro no servidor' });
         } else if (result.length === 0) {
             console.log('Usuário ou senha incorretos');
-            res.status(401).send({ msg: 'Usuário ou senha incorretos' });
+            return res.status(401).send({ msg: 'Usuário ou senha incorretos' });
         } else {
-            console.log('Usuário localizado:', result);
-            res.status(200).send({ msg: 'Login bem-sucedido' });
+            console.log('Usuário localizado:', result[0]);
+            return res.status(200).send({
+                success: true,
+                message: 'Login bem-sucedido',
+                user: result[0] 
+            });
         }
     });
 });

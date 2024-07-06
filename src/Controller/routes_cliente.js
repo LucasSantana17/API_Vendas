@@ -28,7 +28,7 @@ rots.post('/cadastro', (req, rep, next)=>{
       rep.status(500).send({msg:'CPF obrigatório'});
       rep.end();
    }
-   if(senha ==null){
+   if(senha == null){
       rep.status(500).send({msg:'Senha obrigatória'});
       rep.end();
       console.log('Senha invalida ou não fornecidada');
@@ -46,8 +46,6 @@ rots.post('/cadastro', (req, rep, next)=>{
     });
 });
 
-
-// Busca de todos os cadastro no banco
 rots.get('/user',(req, rep, next) => {
    const SQL = 'select * from cliente';
 

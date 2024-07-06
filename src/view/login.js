@@ -26,14 +26,18 @@ function verificacao() {
             if (!response.ok) {
                 throw new Error('Erro ao verificar os dados');
             }
-            return response.json(); 
+            return response.json();
         })
         .then((data) => {
-            console.log('Resposta do servidor:', data);
-            window.location.href = 'http://localhost:3000/home';
+            if (data.success) {
+               window.location.href = 'http://localhost:3000/home';
+            } else {
+                console.error('Login falhou:', data.message);
+            }
         })
         .catch((error) => {
             console.error('Erro ao fazer login:', error);
+            alert('Login falhou. Tente novamente mais tarde.');
         });
     });
 }

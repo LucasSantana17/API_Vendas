@@ -1,6 +1,8 @@
 const express = require('express');
 const formulario = express.Router();
 const path = require('path');
+const login = require('./routes_login');
+
 
 formulario.get('/', (req, res) => {
     const filePath = path.join(__dirname,'../view/login.html')
