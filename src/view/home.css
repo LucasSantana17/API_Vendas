@@ -1,23 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-*{
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');*{
     margin: 0;
     padding: 0;
+    color: white;
+    font-family: "Roboto", sans-serif;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
     text-decoration: none;
-    font-family: "Roboto", sans-serif; 
-    color: black;
-}
-
-.msg{
- width: 500px;
- padding: 40px;
 }
 
 body{
-    padding: 20px;
+    height: 100vh;
+    background-color:black;
+}
+
+.INTERFACE{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+header .INTERFACE{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header .LOGO h1{
+    color:aqua;
+    font-weight: 800;
+    font-size: 50px;
+}
+
+header a{
+    color: white;
+    cursor: pointer;
+}
+
+header .NAVEGACAO{
+    display: flex;
+  gap: 30px;
+    
+}
+
+.INICIO{
+    padding: 30px;
+    max-width: 700px;
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
+    flex-direction: column;
+}
+
+
+.ESTOQUE{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.CLI_QUANTIDADE{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.BOTAO{
+background-color: rgb(189, 139, 63);
+width: 50px;
+height: 30px;
+color: black;
+font-size: 20px;
+border-radius: 30%;
+gap: 10px;
+cursor: pointer;
+}
+
+.BOTAO_COMPRA{
+    color: black;
+    background-color: aqua;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.PRODUTO section{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
